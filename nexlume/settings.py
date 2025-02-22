@@ -10,7 +10,12 @@ SECRET_KEY = os.getenv("SECRET_KEY", "your-default-secret-key")
 
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "nexlume-portfolio.onrender.com").split(",")
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "nexlume-portfolio.onrender.com",
+    os.getenv("RENDER_EXTERNAL_HOSTNAME", ""),
+]
 
 
 # Timezone & Language
