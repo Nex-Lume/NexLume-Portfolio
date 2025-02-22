@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+q-u!xyz-%%&#5t-56)lcfpv=bw1!1ol&wck$2=+3e@pn0uyn_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['nexlume.onrender.com']
 
@@ -86,6 +86,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+#postgresql://nexlume_django_render_user:txxiqUImspeSDPd4u2RaTKExpqRzJHFB@dpg-cusknc52ng1s73ev5n8g-a.oregon-postgres.render.com/nexlume_django_render
 
 
 # Password validation
