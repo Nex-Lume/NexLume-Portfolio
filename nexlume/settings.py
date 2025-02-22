@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
-from pathlib import Path
+from pathlib import Path 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+q-u!xyz-%%&#5t-56)lcfpv=bw1!1ol&wck$2=+3e@pn0uyn_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['nexlume.onrender.com']
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "nexlume-portfolio.onrender.com").split(",")
 
 
 # settings.py
@@ -61,7 +61,7 @@ ROOT_URLCONF = 'nexlume.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-         'DIRS': [os.path.join(BASE_DIR, 'templates')], 
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,7 +86,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-#postgresql://nexlume_django_render_user:txxiqUImspeSDPd4u2RaTKExpqRzJHFB@dpg-cusknc52ng1s73ev5n8g-a.oregon-postgres.render.com/nexlume_django_render
 
 
 # Password validation
@@ -127,9 +126,6 @@ STATIC_URL = 'static/'
 
 # Directory to collect all static files when running `collectstatic`
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
 
 # Add paths to locate static files within your apps
 STATICFILES_DIRS = [
