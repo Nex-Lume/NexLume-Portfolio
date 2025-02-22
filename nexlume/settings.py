@@ -61,7 +61,7 @@ ROOT_URLCONF = 'nexlume.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+         'DIRS': [os.path.join(BASE_DIR, 'templates')], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,6 +127,9 @@ STATIC_URL = 'static/'
 
 # Directory to collect all static files when running `collectstatic`
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 # Add paths to locate static files within your apps
 STATICFILES_DIRS = [
